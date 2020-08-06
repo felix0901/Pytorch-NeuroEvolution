@@ -6,7 +6,8 @@ import os
 import pickle
 import time
 
-from GA import GA
+from NeuroEvolution import NeuroEvolution
+
 from utils.helpers import weights_init
 import gym
 from gym import logger as gym_logger
@@ -70,13 +71,13 @@ def get_reward(weights, model, render=False):
 partial_func = partial(get_reward, model=model)
 mother_parameters = list(model.parameters())
 
-ga = GA(
+ne = NeuroEvolution(
     mother_parameters, partial_func, population_size=15,
     sigma=0.1, learning_rate=0.001, reward_goal=300, consecutive_goal_stopping=20,
     threadcount=50, cuda=cuda, render_test=False
 )
 start = time.time()
-final_weights = ga.run(4000, print_step=1)
+final_weights = ne.run(4000, print_step=1)
 end = time.time() - start
 
 pickle.dump(final_weights, open(os.path.abspath(args.weights_path), 'wb'))

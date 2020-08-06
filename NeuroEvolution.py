@@ -1,6 +1,4 @@
-"""
-November
-"""
+
 import copy
 from multiprocessing.pool import ThreadPool
 from multiprocessing import Pool
@@ -12,7 +10,7 @@ import numpy as np
 import torch
 from operator import add
 
-class GA:
+class NeuroEvolution:
 
     def __init__(
         self, 

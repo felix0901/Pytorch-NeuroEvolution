@@ -5,7 +5,8 @@ import logging
 
 import time
 
-from GA import GA
+from NeuroEvolution import NeuroEvolution
+
 import gym
 from gym import logger as gym_logger
 import numpy as np
@@ -69,13 +70,13 @@ mother_parameters = list(model.parameters())
 
 
 
-ga = GA(
+ne = NeuroEvolution(
     mother_parameters, partial_func, population_size=15, sigma=0.1,
     learning_rate=0.001, threadcount=200, cuda=args.cuda, reward_goal=200,
     consecutive_goal_stopping=10, seeded_env=-1
 )
 start = time.time()
-final_weights = ga.run(4000, print_step=10)
+final_weights = ne.run(4000, print_step=10)
 end = time.time() - start
 
 # reward = partial_func(final_weights, render=False)
