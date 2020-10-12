@@ -21,6 +21,6 @@
   year = {2020},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/hardmaru/slimevolleygym}},
+  howpublished = {\url{https://github.com/felix0901/Pytorch-NeuroEvolution}},
 }
 ```
